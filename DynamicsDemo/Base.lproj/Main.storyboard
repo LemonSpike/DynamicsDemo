@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="n9d-mc-5Jf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="n9d-mc-5Jf">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -16,7 +16,21 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sEN-Dm-5Pn">
+                                <rect key="frame" x="391" y="173" width="8" height="8"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fI1-fP-edv">
+                                <rect key="frame" x="315" y="374" width="8" height="8"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="UA5-lp-CDv" appends="YES" id="9QT-yO-qsv"/>
+                        </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Single Item" id="5cd-PS-IO9">
@@ -26,8 +40,17 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="blueSquare" destination="fI1-fP-edv" id="z25-Vn-eoo"/>
+                        <outlet property="redSquare" destination="sEN-Dm-5Pn" id="lt1-XN-Y6O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="UA5-lp-CDv">
+                    <connections>
+                        <action selector="handleAttachmentGesture:" destination="BYZ-38-t0r" id="UYR-pB-Op5"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2169" y="636"/>
         </scene>
@@ -79,7 +102,42 @@
                     <view key="view" contentMode="scaleToFill" id="tan-mP-Up4">
                         <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="ua8-kl-WKX">
+                                <rect key="frame" x="238" y="240" width="124" height="8"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n3k-Zr-92j">
+                                        <rect key="frame" x="0.0" y="0.0" width="8" height="8"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="8" id="CDk-D2-Zfw"/>
+                                            <constraint firstAttribute="height" constant="8" id="cfk-EG-b2i"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iqS-3r-MUg">
+                                        <rect key="frame" x="58" y="0.0" width="8" height="8"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="8" id="Ydm-8N-1F3"/>
+                                            <constraint firstAttribute="height" constant="8" id="gQH-aj-0ZB"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fks-Xu-Uep">
+                                        <rect key="frame" x="116" y="0.0" width="8" height="8"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="8" id="1Mg-x4-Yd4"/>
+                                            <constraint firstAttribute="height" constant="8" id="qmO-Sh-rQB"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ua8-kl-WKX" firstAttribute="centerX" secondItem="tan-mP-Up4" secondAttribute="centerX" id="KWI-rb-pLb"/>
+                            <constraint firstItem="ua8-kl-WKX" firstAttribute="centerY" secondItem="tan-mP-Up4" secondAttribute="centerY" id="Tsz-0Z-kbB"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Multiple Items" id="bm8-5r-uep">
@@ -89,6 +147,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outletCollection property="boxCollection" destination="n3k-Zr-92j" collectionClass="NSMutableArray" id="W5n-HQ-a6u"/>
+                        <outletCollection property="boxCollection" destination="iqS-3r-MUg" collectionClass="NSMutableArray" id="oNs-4c-kbX"/>
+                        <outletCollection property="boxCollection" destination="Fks-Xu-Uep" collectionClass="NSMutableArray" id="AEH-jq-dsQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="05C-Dx-o2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
